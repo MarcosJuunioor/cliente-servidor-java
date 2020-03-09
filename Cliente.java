@@ -9,10 +9,10 @@ public class Cliente{
 	    
 	    try{ 
 	    	System.out.println("Conectando...");
-	    	s = new Socket("192.168.89.149",6789);
+	    	s = new Socket("192.168.0.113",6789);
 	    	DataInputStream in = new DataInputStream(s.getInputStream());
 			DataOutputStream out = new DataOutputStream(s.getOutputStream());
-			System.out.println("Conectado. Enviando "+total+" números...");
+			System.out.println("Conectado. Enviando "+total+" palavras...");
 			
 			for(c=0; c<total; c++){
 				//       numero = 100.0*Math.random();
@@ -24,7 +24,7 @@ public class Cliente{
 			}
 			out.flush();
 			out.writeUTF("fim");
-			System.out.println("Frase = "+in.readUTF());
+			System.out.println("Frase = "+decodificar(3, in.readUTF()));
 	    }
 	    catch(Exception e){ 
 	    	System.out.println("Erro: "+e.getMessage()); 

@@ -18,12 +18,13 @@ public class Servidor{
 	    		palavra = in.readUTF();
 			  
 	    		while(!palavra.equals("fim")){ 
-	    			
+	    			palavra = decodificar(3, palavra);
 	    			frase += palavra;
 	    			System.out.println("Palavra recebida: "+palavra+
 			                     " \t - parcial = "+frase);
 	    			palavra = in.readUTF();
 	    		}
+	    		frase = codificar(frase);
 	    		out.writeUTF(frase);
 	    		cliente.close();
 	    		System.out.println("Conexão encerrada.");
